@@ -17,8 +17,9 @@ public class Deck {
 
 	public void shuffle() {
 		// FIX ME
-		int count = 0; 
-		
+		int deckSize = this.cards.length;
+		for (int i = 0; i<deckSize; i++)
+			int random = (int) (deckSize*Math.random());
 
 	}
 
