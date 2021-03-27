@@ -18,8 +18,14 @@ public class Deck {
 	public void shuffle() {
 		// FIX ME
 		int deckSize = this.cards.length;
-		for (int i = 0; i<deckSize; i++)
-			int random = (int) (deckSize*Math.random());
+		for (int i = 0; i<deckSize; i++) {
+			int random = (int)(deckSize *Math.random());
+			Card placeHolder = new Card(0,0);
+			placeHolder = this.cards[i];
+			this.cards[i]= this.cards[random];
+			this.cards[random]=placeHolder;
+		}
+		
 
 	}
 

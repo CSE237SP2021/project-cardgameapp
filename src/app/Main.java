@@ -11,6 +11,9 @@ public class Main {
 		System.out.println("Comparison: " + comparison);
 		Deck d = new Deck();
 		d.print();
+		d.shuffle();
+		System.out.println("Shuffled");
+		d.print();
 	}
 
 }
