@@ -17,6 +17,8 @@ public class Deck {
 
 	public void shuffle() {
 		// FIX ME
+		int count = 0; 
+		
 
 	}
 
