@@ -1,6 +1,7 @@
 package app;
 
 public class Deck {
+	public  int Score = 0; 
 
 	private Card [] cards = new Card [52];
 
@@ -31,6 +32,7 @@ public class Deck {
 
 	public Card drawCard() {
 		// FIX ME
+
 		return new Card(0,0);
 	}
 	
@@ -39,6 +41,24 @@ public class Deck {
 		for (int i = 0; i < this.cards.length; ++i) {
 			this.cards[i].print();
 		}
+	}
+	public void Win(){
+		if(Score < 21){
+			// keep playing 
+			drawCard();
+
+		}
+		else if(Score==21){
+			// stop playing and declare winner
+			println("Something happened");
+		}
+		else{
+			// end game and start a new one.
+			Score = 0;
+			drawCard(); 
+		}
+
+
 	}
 
 
