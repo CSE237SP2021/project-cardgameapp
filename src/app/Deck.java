@@ -25,7 +25,7 @@ public class Deck {
 			this.cards[i]= this.cards[random];
 			this.cards[random]=placeHolder;
 		}
-		
+
 
 	}
 
@@ -33,7 +33,7 @@ public class Deck {
 		// FIX ME
 		return new Card(0,0);
 	}
-	
+
 
 	public void print() {
 		for (int i = 0; i < this.cards.length; ++i) {
