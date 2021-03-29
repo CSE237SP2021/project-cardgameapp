@@ -27,15 +27,18 @@ public class Deck {
 			this.cards[i]= this.cards[random];
 			this.cards[random]=placeHolder;
 		}
-		
+		//after shuffling, reset the next card to be drawn to be at the top
 		topCard = 0;
 	}
 
 	public Card drawCard() {
-		if(this.cards.length == 0) {
+		//Shuffle if the deck is empty
+		if(topCard == this.cards.length) {
 			shuffle();
 		}
-		return cards[topCard++];
+		int nextCard = topCard;
+		topCard++;
+		return cards[nextCard];
 	}
 	
 
