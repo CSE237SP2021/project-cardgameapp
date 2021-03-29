@@ -27,8 +27,6 @@ public class Deck {
 			this.cards[i]= this.cards[random];
 			this.cards[random]=placeHolder;
 		}
-		//after shuffling, reset the next card to be drawn to be at the top
-		topCard = 0;
 	}
 
 	public Card drawCard() {
@@ -40,7 +38,7 @@ public class Deck {
 		topCard++;
 		return cards[nextCard];
 	}
-	
+
 
 	public void print() {
 		for (int i = 0; i < this.cards.length; ++i) {
