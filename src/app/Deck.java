@@ -3,6 +3,7 @@ package app;
 public class Deck {
 
 	private Card [] cards = new Card [52];
+	private int topCard;
 
 	public Deck() {
 		int count = 0;
@@ -13,6 +14,7 @@ public class Deck {
 				count++;
 			}
 		}
+		topCard = 0;
 	}
 
 	public void shuffle() {
@@ -25,13 +27,16 @@ public class Deck {
 			this.cards[i]= this.cards[random];
 			this.cards[random]=placeHolder;
 		}
-
-
 	}
 
 	public Card drawCard() {
-		// FIX ME
-		return new Card(0,0);
+		//Shuffle if the deck is empty
+		if(topCard == this.cards.length) {
+			shuffle();
+		}
+		int nextCard = topCard;
+		topCard++;
+		return cards[nextCard];
 	}
 
 
