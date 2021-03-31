@@ -12,8 +12,11 @@ public class Main {
 		Deck d = new Deck();
 		d.print();
 		d.shuffle();
-		System.out.println("Shuffled");
 		d.print();
+		for (int i = 0; i < 100; ++i) {
+			Card drawnCard = d.drawCard();
+			drawnCard.print();
+		}
 	}
 
 }
