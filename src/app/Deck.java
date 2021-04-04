@@ -15,14 +15,13 @@ public class Deck {
 				count++;
 			}
 		}
-		topCard = 0;
+		this.topCard = 0;
 	}
 
 	public void shuffle() {
-		// FIX ME
 		int deckSize = this.cards.length;
 		for (int i = 0; i<deckSize; i++) {
-			int random = (int)(deckSize *Math.random());
+			int random = (int)(deckSize * Math.random());
 			Card placeHolder = new Card(0,0);
 			placeHolder = this.cards[i];
 			this.cards[i]= this.cards[random];
@@ -31,12 +30,12 @@ public class Deck {
 	}
 
 	public Card drawCard() {
-		//Shuffle if the deck is empty
-		if(topCard == this.cards.length) {
+		if(this.topCard == this.cards.length) {
 			shuffle();
+			this.topCard = 0;
 		}
 		int nextCard = topCard;
-		topCard++;
+		this.topCard++;
 		return cards[nextCard];
 	}
 

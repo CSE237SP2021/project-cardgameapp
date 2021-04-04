@@ -1,4 +1,4 @@
-# The user stories that were completed this iteration were creation of a Card class, creation of a Deck class, implimentation of a Shuffle method, implimentation of a Draw Card method, and
+The user stories that were completed this iteration were creation of a Card class, creation of a Deck class, implimentation of a Shuffle method, implimentation of a Draw Card method, and
 
 Next iteration we intend to complete the framework for the War card game, we intend to complete the framework for the Blackjack game, and we intent to implement JUnit tests for both games
 
