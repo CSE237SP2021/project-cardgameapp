@@ -45,25 +45,4 @@ public class Deck {
 			this.cards[i].print();
 		}
 	}
-	public void Win(){
-		if(Score < 21){
-			// keep playing 
-			drawCard();
-
-		}
-		else if(Score==21){
-			// stop playing and declare winner
-			println("Something happened");
-		}
-		else{
-			// end game and start a new one.
-			Score = 0;
-			drawCard(); 
-		}
-
-
-	}
-
-
-
 }
