@@ -41,6 +41,37 @@ public class Blackjack implements Game {
 		playerAgent.withdraw(amount);
 		return amount;
 	}
+		private int promptForPlayChoice() {
+			// player can make a choice for hit 
+		int currentBalance = playerAgent.getBalance();
+				String choice = keyboardIn.nextLine();
+		while(isValidInteger(amountAsString)) {
+			System.out.println("That is not a string");
+			choice = keyboardIn.nextLine();
+		}
+		if(choice == "hit"){
+			hit = true; 
+
+		}
+		else if(choice == "double"){
+			boolean doubling = true; 
+
+
+		}
+		else if(choice == "split"){
+			boolean split = true; 
+
+
+		}
+		else{
+
+		// player choice is stand by defalut 
+
+		}
+
+		System.out.println("You currently have " + currentBalance + " credits left in your balance. How much would like to bet?");
+		
+	}
 
 	@Override
 	public int play() {
@@ -54,6 +85,43 @@ public class Blackjack implements Game {
 			}
 		}
 		return 0;
+	}
+	public void HitorStand(){
+		boolean hit; 
+		// player chosses to either to ask for another card or hold current hand
+
+		if(hit){
+			Card hitcard = drawCard(); 
+			playerAgent.player_score += hitcard.getRaank();
+			playerAgent.hand[hand.length()] = hitcard;
+
+		} 
+		else{
+
+		}
+
+		return 0;
+	}
+	public boolean Bustwin(){
+
+		if(playerAgent.player_score >21){
+
+			return true;
+		}
+		else if(playerAgent.player_score == 21){
+
+			return false;
+			// display and log winner 
+		}
+
+		else{
+			return false; 
+		}
+	}
+	public void checkHand(){
+		// run loop through the hand to get the players score from the hand 
+
+
 	}
 
 
