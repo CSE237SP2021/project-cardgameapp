@@ -16,10 +16,13 @@ class DeckTests {
 		d1.shuffle();
 		for(int i =0; i<52; i++){
 			if(d1.drawCard().compareToCard(d2.drawCard()) != 0 ){
-				count=1;
+				count=count+1;
 			}
 		}
-		assertEquals(count,0);
+		if(count>0) {
+			count =1;
+		}
+		assertEquals(count,1);
 	}
 	
 }
