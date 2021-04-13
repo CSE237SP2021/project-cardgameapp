@@ -2,7 +2,7 @@ package app;
 
 public class Player {
 
-	private String username;
+	public String username;
 	private int player_score;
 	private int balance;
 	private Card [] hand; 
