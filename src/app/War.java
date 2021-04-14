@@ -32,7 +32,7 @@ public class War implements Game {
 		}
 		return 0;
 	}
-
+	//Prompt the user to start next turn
 	private void prompt(){
 		System.out.println("Enter F to fight the next battle!");
 		String input = keyboardIn.nextLine();
@@ -46,6 +46,8 @@ public class War implements Game {
 				break;
 		}
 	}
+
+	//
 	private void battle(){
 		Card c1=this.deck.drawCard();
 		Card c2=this.deck.drawCard();
