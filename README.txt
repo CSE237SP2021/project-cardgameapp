@@ -8,6 +8,9 @@ The in-progress pieces such as the blackjack framework does not currently functi
 For the first iteration we planned to finish a large portion of the Java code and then for iteration two focus on integration with the command line, so currently we dont have a command line command to acccess our Java code, but if the Main method for our source file is run you can see a demonstration of how some of our methods work.
 
 Iteration 2:
+
+You can locate our code for iteration 2 in our development branch. We received feedback last iteration to only work in our development branch and merge into master the least amount possible.
+
 What user stories were completed this iteration?
   The User stories we completed this iteration were completed were user can access the application through the command line, the framework for the Blackjack game, and the framework for the war game. 
   
@@ -19,5 +22,5 @@ Is there anything that you implemented but doesn't currently work?
   
 What commands are needed to compile and run your code from the command line (or better yet, provide a script that people can use to run your program!)
   
-
+You can run our program by cloning our develpment branch, finding it in on your computer through the terminal, and running ./cardgameapp.sh on the command line.
  
