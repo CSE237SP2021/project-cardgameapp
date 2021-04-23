@@ -8,12 +8,16 @@ public class War implements Game {
 
 	private Deck deck;
 	private Player playerAgent;
+	private int playerScore;
+	private int compScore;
 	private Scanner keyboardIn;
 
 	public War(Player playerAgent) {
 		this.playerAgent = playerAgent;
 		this.deck = new Deck();
 		this.keyboardIn = new Scanner(System.in);
+		this.playerScore = 0; 
+		this.compScore = 0;
 	}
 
 	@Override
@@ -24,11 +28,23 @@ public class War implements Game {
 
 	@Override
 	public int play() {
-		System.out.println("Welcome to War"+ this.playerAgent.username+"!");
+		System.out.println("Welcome to War"+ this.playerAgent.username+"! If you win, you gain 10 credits and if you lose you, you lose 10 credits.");
 		boolean stillPlaying = true;
 		while(stillPlaying){
 			prompt();
 			battle();
+			if(this.playerScore+this.compScore==26){
+				stillPlaying=false;
+				if(this.playerScore > this.compScore){
+					System.out.println("You won the war! You win 10 credits.");
+					this.playerAgent.deposit(10);
+				}else if(this.playerScore < this.compScore){
+					System.out.println("You lost the war! You lose 10 credits.");
+					this.playerAgent.withdraw(10);
+				}else{
+					System.out.println("You tied the war! You keep your credits.");
+				}
+			}
 		}
 		return 0;
 	}
@@ -55,11 +71,11 @@ public class War implements Game {
 		System.out.println("Computer drew a "+ c2.getRank() +" of "+c2.getSuit());
 		int comparison = c1.compareToCard(c2);
 		if(comparison == 1){
-			//fill
-		}else if(comparison == 0){
-			//fill
+			System.out.println(this.playerAgent.username+" won this battle!");
+			this.playerScore++;
 		}else{
-			//fill
+			System.out.println("Computer won this battle!");
+			this.compScore++;
 		}
 		
 	}
