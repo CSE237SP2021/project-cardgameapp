@@ -41,6 +41,7 @@ public class Deck {
 
 
 	public void print() {
+		System.out.println("Your hand consists of: ");
 		for (int i = 0; i < this.cards.length; ++i) {
 			this.cards[i].print();
 		}
