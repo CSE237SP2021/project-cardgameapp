@@ -32,7 +32,7 @@ The user stories completed this iteration were finish the War game, finish the B
 
 Is there anything that you implemented but doesn't currently work?
 
-We realized the make 21 was too complicated and that was the only thing not completed. Other than that everythink should world.
+We realized the make 21 was too complicated and that was the only thing not completed. Other than that, everything should work.
 
 What commands are needed to compile and run your code from the command line (or better yet, provide a script that people can use to run your program!)
 
