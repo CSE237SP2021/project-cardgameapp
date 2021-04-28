@@ -17,14 +17,35 @@ public class Card {
 		this.rank = rank;
 		this.suit = suit;
 	}
+	
+	public Card(String rank, String suit) {
+		for (int i = 0; i < suits.length; ++i) {
+			if (suits[i].equals(suit)) {
+				this.suit = i;
+			}
+		}
+		for (int j = 0; j < ranks.length; ++j) {
+			if (ranks[j].equals(rank)) {
+				this.rank = j;
+			}
+		}
+	}
 
 	public int getRank() {
 		return this.rank;
 
 	}
+	
+	public String getRankAsString() {
+		return ranks[this.rank];
+	}
 
 	public int getSuit() {
 		return this.suit;
+	}
+	
+	public String getSuitAsString() {
+		return suits[this.suit];
 	}
 
 	/**
