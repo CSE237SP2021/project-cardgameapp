@@ -22,5 +22,18 @@ Is there anything that you implemented but doesn't currently work?
   
 What commands are needed to compile and run your code from the command line (or better yet, provide a script that people can use to run your program!)
   
-You can run our program by cloning our develpment branch, finding it in on your computer through the terminal, and running ./cardgameapp.sh on the command line.
+You can run our program by cloning our master branch, finding it in on your computer through the terminal, and running ./cardgameapp.sh on the command line.
  
+Iteration 3: 
+
+What user stories were completed this iteration?
+
+The user stories completed this iteration were finish the War game, finish the Blackjack game, create a leaderboard for players, and play make 21. 
+
+Is there anything that you implemented but doesn't currently work?
+
+There is nothing that is not implemented yet.
+
+What commands are needed to compile and run your code from the command line (or better yet, provide a script that people can use to run your program!)
+
+You can run our program by cloning our master branch, finding it in on your computer through the terminal, and running ./cardgameapp.sh on the command line.
