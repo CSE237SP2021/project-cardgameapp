@@ -30,6 +30,7 @@ public class War implements Game {
 	public int play() {
 		System.out.println("Welcome to War"+ this.playerAgent.username+"! If you win, you gain 10 credits and if you lose you, you lose 10 credits.");
 		boolean playing = true;
+		this.deck.shuffle();
 		while(playing){
 			prompt();
 			battle();
@@ -56,8 +57,9 @@ public class War implements Game {
 	private void battle(){
 		Card c1=this.deck.drawCard();
 		Card c2=this.deck.drawCard();
-		System.out.println(this.playerAgent.username+" drew a "+ c1.getRank() +" of "+c1.getSuit());
-		System.out.println("Computer drew a "+ c2.getRank() +" of "+c2.getSuit());
+		System.out.println("");
+		System.out.println(this.playerAgent.username+" drew a "+ c1.suits[c1.getRank()] +" of "+c1.getSuit());
+		System.out.println("Computer drew a "+ c2.getRank() +" of "+c2.suits[c2.getSuit()]);
 		int comparison = c1.compareToCard(c2);
 		if(comparison == 1){
 			System.out.println(this.playerAgent.username+" won this battle!");
