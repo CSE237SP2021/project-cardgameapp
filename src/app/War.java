@@ -29,22 +29,11 @@ public class War implements Game {
 	@Override
 	public int play() {
 		System.out.println("Welcome to War"+ this.playerAgent.username+"! If you win, you gain 10 credits and if you lose you, you lose 10 credits.");
-		boolean stillPlaying = true;
-		while(stillPlaying){
+		boolean playing = true;
+		while(playing){
 			prompt();
 			battle();
-			if(this.playerScore+this.compScore==26){
-				stillPlaying=false;
-				if(this.playerScore > this.compScore){
-					System.out.println("You won the war! You win 10 credits.");
-					this.playerAgent.deposit(10);
-				}else if(this.playerScore < this.compScore){
-					System.out.println("You lost the war! You lose 10 credits.");
-					this.playerAgent.withdraw(10);
-				}else{
-					System.out.println("You tied the war! You keep your credits.");
-				}
-			}
+			playing = stillPlaying();
 		}
 		return 0;
 	}
@@ -63,7 +52,7 @@ public class War implements Game {
 		}
 	}
 
-	//
+	//method created plays out a battle
 	private void battle(){
 		Card c1=this.deck.drawCard();
 		Card c2=this.deck.drawCard();
@@ -78,6 +67,43 @@ public class War implements Game {
 			this.compScore++;
 		}
 		
+	}
+
+	public int getCompScore() {
+		return this.compScore;
+	}
+
+	public int getPlayerScore() {
+		return this.playerScore;
+	}
+
+	public Player getPlayerAgent() {
+		return this.playerAgent;
+	}
+
+	public void setCompScore(int compScore) {
+		this.compScore = compScore;
+	}
+	public void setPlayerScore(int playerScore) {
+		this.playerScore = playerScore;
+	}
+
+
+	public boolean stillPlaying(){
+		if(this.getCompScore()+this.getPlayerScore()==26){
+			if(this.getPlayerScore() > this.getCompScore()){
+				System.out.println("You won the war! You win 10 credits.");
+				this.getPlayerAgent().deposit(10);
+			}else if(this.getPlayerScore() < this.getCompScore()){
+				System.out.println("You lost the war! You lose 10 credits.");
+				this.getPlayerAgent().withdraw(10);
+			}else{
+				System.out.println("You tied the war! You keep your credits.");
+			}
+			return false;
+		}else{
+			return true;
+		}
 	}
 
 }
