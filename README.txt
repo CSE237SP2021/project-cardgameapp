@@ -1,3 +1,6 @@
+
+The user stories that were completed this iteration were creation of a Card class, creation of a Deck class, implimentation of a Shuffle method, implimentation of a Draw Card method, and
+
 Iteration 1:
 # The user stories that were completed this iteration were creation of a Card class, creation of a Deck class, implimentation of a Shuffle method, implimentation of a Draw Card method, and
 

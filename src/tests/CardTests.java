@@ -8,6 +8,8 @@ import app.Card;
 
 class CardTests {
 
+
+
 	@Test 
 	void getCardRankAndSuitTests() {
 		Card c = new Card(0,2);
@@ -15,6 +17,15 @@ class CardTests {
 		int suit = c.getSuit();
 		assertEquals(rank, 0);
 		assertEquals(suit, 2);
+	}
+
+	@Test 
+	void getCardRankAndSuitUsingStringConstructor() {
+		Card c = new Card("King", "Clubs");
+		int rank = c.getRank();
+		int suit = c.getSuit();
+		assertEquals(rank, 11);
+		assertEquals(suit, 0);
 	}
 
 	@Test
