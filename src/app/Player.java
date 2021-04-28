@@ -1,5 +1,10 @@
 package app;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+
 public class Player {
 
 	public String username;
@@ -32,4 +37,12 @@ public class Player {
 	public int getScore(){
 		return this.player_score;
 	}
+	public void saveBalance() throws IOException {
+		File file1 = new File("theVault.txt");
+		FileWriter fw = new FileWriter(file1);
+		PrintWriter pw = new PrintWriter(fw);
+		pw.println(getUsername() + ": " + getBalance());
+		pw.close();
+	}
+	
 }
