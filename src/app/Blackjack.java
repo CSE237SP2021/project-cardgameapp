@@ -27,7 +27,7 @@ public class Blackjack implements Game {
 		this.playerHand = new BlackJackHand();
 		this.dealerHand = new BlackJackHand();
 		this.playersTurn = true;
-		
+
 		System.out.println();
 		System.out.println("Dealing Cards...");
 
@@ -63,7 +63,7 @@ public class Blackjack implements Game {
 		this.dealerHand.addCard(firstCard);
 		this.dealerHand.addCard(secondCard);
 	}
-	
+
 	private boolean isValidInteger(String str) {
 		try {
 			Integer.parseInt(str);
@@ -73,7 +73,7 @@ public class Blackjack implements Game {
 			return false;
 		}
 	}
-	
+
 	/**
 	 * Prompts players for amount they would like to wager each hand
 	 * @return amount being wagered
@@ -96,7 +96,7 @@ public class Blackjack implements Game {
 	 * Prompts user for the move they would like to make each hand
 	 */
 	private void promptForPlayerMove() {
-		System.out.println("Enter the move you would like to make:");
+		System.out.println("Enter the number of the move you would like to make:");
 		System.out.println("1. Hit");
 		System.out.println("2. Stand");
 		String input = keyboardIn.nextLine();
@@ -144,7 +144,7 @@ public class Blackjack implements Game {
 			System.out.println();
 		}
 	}
-	
+
 	/**
 	 * Updates users balance based on the outcome of the round of blackjack
 	 * @param betAmount
@@ -168,7 +168,7 @@ public class Blackjack implements Game {
 	}
 
 	private boolean promptToKeepPlaying() {
-		System.out.println("Would you like to play another hand?");
+		System.out.println("Would you like to play another hand? Enter the number of the option you would like to select.");
 		System.out.println("1. Yes");
 		System.out.println("2. No");
 		String input = keyboardIn.nextLine();
@@ -179,9 +179,11 @@ public class Blackjack implements Game {
 		switch (input) {
 		case "1":
 			System.out.println("Sounds good! Lets play some more.");
+			System.out.println();
 			return true;
 		case "2":
 			System.out.println("Thanks for playing! Goodbye");
+			System.out.println();
 			return false;
 		default:
 			return true;
@@ -197,7 +199,7 @@ public class Blackjack implements Game {
 			int betAmount = promptForBetAmount();
 			boolean currentHandIsLive = true;
 			initialize();
-			
+
 			while (currentHandIsLive) {
 				if (this.playerHand.isBust() || this.playerHand.isHit() || this.playersTurn == false) {
 					currentHandIsLive = false;
@@ -206,8 +208,9 @@ public class Blackjack implements Game {
 					promptForPlayerMove();
 				}
 			}	
-			
+
 			if (this.playerHand.isBust()) {
+				System.out.println();
 				System.out.println("You lose!");
 				System.out.println();
 			}

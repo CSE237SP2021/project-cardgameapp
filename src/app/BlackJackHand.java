@@ -14,6 +14,9 @@ public class BlackJackHand {
 		cards.add(c);
 	}
 	
+	/**
+	 * @return value that is closest to 21 which does does not exceed 21
+	 */
 	public int getBestValue() {
 		int bestValue = 0;
 		Vector<Integer> values = getHandValues();
@@ -26,6 +29,10 @@ public class BlackJackHand {
 		return bestValue;
 	}
 
+	/**
+	 * Hand is a hit if its cards combine in some way to make 21
+	 * @return boolean indicating whether hand is a hit or not
+	 */
 	public boolean isHit() {
 		Vector<Integer> potentialValues = getHandValues();
 		
@@ -38,6 +45,10 @@ public class BlackJackHand {
 		return false;
 	}
 
+	/**
+	 * Hand is a bust if its card's sum exceeds 21 in all combinations
+	 * @return boolean indicating whether hand is a bust or not
+	 */
 	public boolean isBust() {
 		Vector<Integer> potentialValues = getHandValues();
 		for (int i = 0; i < potentialValues.size(); ++i) {
@@ -48,6 +59,7 @@ public class BlackJackHand {
 		}
 		return true;
 	}
+
 
 	public Vector<Integer> getHandValues() {
 

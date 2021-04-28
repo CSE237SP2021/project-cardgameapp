@@ -28,7 +28,8 @@ public class War implements Game {
 
 	@Override
 	public int play() {
-		System.out.println("Welcome to War"+ this.playerAgent.username+"! If you win, you gain 10 credits and if you lose you, you lose 10 credits.");
+		System.out.println("Welcome to War "+ this.playerAgent.username+"! If you win, you gain 10 credits and if you lose you, you lose 10 credits.");
+		System.out.println("To win, you need to win the majority out of 26 games verses the computer.");
 		boolean playing = true;
 		this.deck.shuffle();
 		while(playing){
@@ -43,13 +44,13 @@ public class War implements Game {
 		System.out.println("Enter F to fight the next battle!");
 		String input = keyboardIn.nextLine();
 		switch(input){
-			case "F":
-				break;
-			case "f":
-				break;
-			default:
-				prompt();
-				break;
+		case "F":
+			break;
+		case "f":
+			break;
+		default:
+			prompt();
+			break;
 		}
 	}
 
@@ -58,17 +59,17 @@ public class War implements Game {
 		Card c1=this.deck.drawCard();
 		Card c2=this.deck.drawCard();
 		System.out.println("");
-		System.out.println(this.playerAgent.username+" drew a "+ c1.suits[c1.getRank()] +" of "+c1.getSuit());
-		System.out.println("Computer drew a "+ c2.getRank() +" of "+c2.suits[c2.getSuit()]);
+		System.out.println(this.playerAgent.username+" drew a "+ c1.getRankAsString() + " of " + c1.getSuitAsString());
+		System.out.println("Computer drew a "+ c2.getRankAsString() +" of "+c2.getSuitAsString());
 		int comparison = c1.compareToCard(c2);
-		if(comparison == 1){
+		if ( comparison == 1 ){
 			System.out.println(this.playerAgent.username+" won this battle!");
 			this.playerScore++;
-		}else{
+		} else {
 			System.out.println("Computer won this battle!");
 			this.compScore++;
 		}
-		
+
 	}
 
 	public int getCompScore() {
@@ -86,6 +87,7 @@ public class War implements Game {
 	public void setCompScore(int compScore) {
 		this.compScore = compScore;
 	}
+
 	public void setPlayerScore(int playerScore) {
 		this.playerScore = playerScore;
 	}
@@ -103,7 +105,8 @@ public class War implements Game {
 				System.out.println("You tied the war! You keep your credits.");
 			}
 			return false;
-		}else{
+		}
+		else{
 			return true;
 		}
 	}

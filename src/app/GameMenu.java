@@ -1,5 +1,8 @@
 package app;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class GameMenu {
@@ -16,6 +19,24 @@ public class GameMenu {
 		System.out.println("###############################");
 		System.out.println("###    The Card Game App    ###");
 		System.out.println("###############################");
+	}
+	
+	private void readLeaderboard() {
+		System.out.println();
+		System.out.println("Here is a list of previous players and the balances they achieved:");
+		 try {
+		      File leaderboard = new File("theVault.txt");
+		      Scanner myReader = new Scanner(leaderboard);
+		      while (myReader.hasNextLine()) {
+		        String data = myReader.nextLine();
+		        System.out.println(data);
+		      }
+		      myReader.close();
+		    } catch (FileNotFoundException e) {
+		      System.out.println("An error occurred.");
+		      e.printStackTrace();
+		    }
+		System.out.println();
 	}
 
 	private void promptForUsername() {
@@ -43,12 +64,45 @@ public class GameMenu {
 			break;
 		}
 	}
-
+	
+	private boolean promptUserQuit() {
+		System.out.println("Would you like to exit the app? Enter the number of the option you would like to select.");
+		System.out.println("1. Yes");
+		System.out.println("2. No");
+		String input = keyboardIn.nextLine();
+		while (!input.equals("1") && !input.equals("2")) {
+			System.out.println("Invalid input, please enter valid command");
+			input = keyboardIn.nextLine();
+		}
+		switch (input) {
+		case "1":
+			System.out.println("Saving your balance. Goodbye.");
+			try {
+				playerAgent.saveBalance();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			return false;
+		case "2":
+			System.out.println("Sounds good!");
+			System.out.println();
+			return true;
+		default:
+			promptUserQuit();
+		}
+		return true;
+	}
+	
 	public void run() {
+		boolean running = true;
 		printWelcomeMessage();
+		readLeaderboard();
 		promptForUsername();
-		promptForGame();
-		currentGame.play();
+		while(running) {
+			promptForGame();
+			currentGame.play();
+			running = promptUserQuit();
+		}
 	}
 
 }
