@@ -28,11 +28,11 @@ Iteration 3:
 
 What user stories were completed this iteration?
 
-The user stories completed this iteration were finish the War game, finish the Blackjack game, create a leaderboard for players, and play make 21. 
+The user stories completed this iteration were finish the War game, finish the Blackjack game, and create a leaderboard for players. 
 
 Is there anything that you implemented but doesn't currently work?
 
-There is nothing that is not implemented yet.
+We realized the make 21 was too complicated and that was the only thing not completed. Other than that everythink should world.
 
 What commands are needed to compile and run your code from the command line (or better yet, provide a script that people can use to run your program!)
 
