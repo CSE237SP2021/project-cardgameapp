@@ -29,10 +29,7 @@ public class War implements Game {
 	@Override
 	public int play() {
 		System.out.println("Welcome to War "+ this.playerAgent.username+"! If you win, you gain 10 credits and if you lose you, you lose 10 credits.");
-<<<<<<< HEAD
 		System.out.println("To win, you need to win the majority out of 26 games verses the computer.");
-=======
->>>>>>> 6522a597ead7a1b781ba0857eb0e0cf81761057c
 		boolean playing = true;
 		this.deck.shuffle();
 		while(playing){
@@ -61,14 +58,10 @@ public class War implements Game {
 	private void battle(){
 		Card c1=this.deck.drawCard();
 		Card c2=this.deck.drawCard();
-		System.out.println("");
-<<<<<<< HEAD
-		System.out.println(this.playerAgent.username+" drew a "+ c1.getRankAsString() + " of " + c1.getSuitAsString());
+		int gameNumber = this.getCompScore()+this.getPlayerScore() + 1;
+		System.out.println("Game #" + gameNumber);
+		System.out.println(this.playerAgent.username + " drew a " + c1.getRankAsString() + " of " + c1.getSuitAsString());
 		System.out.println("Computer drew a "+ c2.getRankAsString() +" of "+c2.getSuitAsString());
-=======
-		System.out.println(this.playerAgent.username+" drew a "+ c1.ranks[c1.getRank()] +" of "+c1.suits[c1.getSuit()]);
-		System.out.println("Computer drew a "+ c2.ranks[c2.getRank()] +" of "+c2.suits[c2.getSuit()]);
->>>>>>> 6522a597ead7a1b781ba0857eb0e0cf81761057c
 		int comparison = c1.compareToCard(c2);
 		if ( comparison == 1 ){
 			System.out.println(this.playerAgent.username+" won this battle!");
