@@ -26,7 +26,7 @@ class BlackJackHandTests {
 	void testIsBust() {
 		BlackJackHand hand = new BlackJackHand();
 		Card c1 = new Card("King", "Clubs");
-		Card c2 = new Card("Ace", "Spades");
+		Card c2 = new Card("2", "Spades");
 		Card c3 = new Card("10", "Diamonds");
 		hand.addCard(c1);
 		hand.addCard(c2);
@@ -44,6 +44,17 @@ class BlackJackHandTests {
 		assertTrue(hand.isHit());
 	}
 
+	@Test
+	void testGetBestValueFromHand() {
+		BlackJackHand hand = new BlackJackHand();
+		Card c1 = new Card("King", "Clubs");
+		Card c2 = new Card("Ace", "Spades");
+		Card c3 = new Card("4", "Diamonds");
+		hand.addCard(c1);
+		hand.addCard(c2);
+		hand.addCard(c3);
+		assertEquals(hand.getBestValue(), 15);
+	}
 
 
 

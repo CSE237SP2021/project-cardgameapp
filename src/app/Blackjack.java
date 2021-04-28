@@ -44,6 +44,26 @@ public class Blackjack implements Game {
 
 	}
 
+	/**
+	 * Deals two cards to player agent
+	 */
+	private void dealPlayerAgentCards() {
+		Card firstCard = this.deck.drawCard();
+		Card secondCard = this.deck.drawCard();
+		this.playerHand.addCard(firstCard);
+		this.playerHand.addCard(secondCard);
+	}
+
+	/**
+	 * Deals two cards to dealer agent
+	 */
+	private void dealDealerCards() {
+		Card firstCard = this.deck.drawCard();
+		Card secondCard = this.deck.drawCard();
+		this.dealerHand.addCard(firstCard);
+		this.dealerHand.addCard(secondCard);
+	}
+	
 	private boolean isValidInteger(String str) {
 		try {
 			Integer.parseInt(str);
@@ -53,7 +73,11 @@ public class Blackjack implements Game {
 			return false;
 		}
 	}
-
+	
+	/**
+	 * Prompts players for amount they would like to wager each hand
+	 * @return amount being wagered
+	 */
 	private int promptForBetAmount() {
 		int currentBalance = playerAgent.getBalance();
 		System.out.println("You currently have " + currentBalance + " credits left in your balance. How much would like to bet?");
@@ -62,41 +86,30 @@ public class Blackjack implements Game {
 			System.out.println("That is not a number");
 			amountAsString = keyboardIn.nextLine();
 		}
-		int amount =  Integer.parseInt(amountAsString);
+		int amount =  Integer.parseInt(amountAsString);	
 		playerAgent.withdraw(amount);
 		return amount;
 	}
 
 
-	private void dealPlayerAgentCards() {
-		Card firstCard = this.deck.drawCard();
-		Card secondCard = this.deck.drawCard();
-		this.playerHand.addCard(firstCard);
-		this.playerHand.addCard(secondCard);
-	}
-
-	private void dealDealerCards() {
-		Card firstCard = this.deck.drawCard();
-		Card secondCard = this.deck.drawCard();
-		this.dealerHand.addCard(firstCard);
-		this.dealerHand.addCard(secondCard);
-	}
-
+	/**
+	 * Prompts user for the move they would like to make each hand
+	 */
 	private void promptForPlayerMove() {
 		System.out.println("Enter the move you would like to make:");
 		System.out.println("1. Hit");
 		System.out.println("2. Stand");
-		System.out.println("3: Double Down");
 		String input = keyboardIn.nextLine();
+		while (!input.equals("1") && !input.equals("2")) {
+			System.out.println("Invalid input, please enter valid command");
+			input = keyboardIn.nextLine();
+		}
 		switch (input) {
 		case "1":
 			handleHit();
 			break;
 		case "2":
 			handleStand();
-			break;
-		case "3":
-			handleDoubleDown();
 			break;
 		default:
 			System.out.println("Invalid Input");
@@ -118,10 +131,6 @@ public class Blackjack implements Game {
 		this.playersTurn = false;
 	}
 
-	private void handleDoubleDown() {
-
-	}
-
 	private void handleDealerHand() {
 		System.out.println();
 		System.out.println("Dealers Hand: ");
@@ -136,22 +145,23 @@ public class Blackjack implements Game {
 		}
 	}
 	
+	/**
+	 * Updates users balance based on the outcome of the round of blackjack
+	 * @param betAmount
+	 */
 	private void handleGameOutcome(int betAmount) {
 		int playerScore = this.playerHand.getBestValue();
 		int dealerScore = this.dealerHand.getBestValue();
 		if (playerScore > dealerScore) {
 			this.playerAgent.deposit(2 * betAmount);
-			System.out.println();
 			System.out.println("You win!");
 			System.out.println();
 		}
 		else if (dealerScore > playerScore) {
-			System.out.println();
 			System.out.println("The Dealer Wins :(");
 			System.out.println();
 		} else {
 			this.playerAgent.deposit(betAmount);
-			System.out.println();
 			System.out.println("Its a tie.");
 			System.out.println();
 		}
@@ -162,6 +172,10 @@ public class Blackjack implements Game {
 		System.out.println("1. Yes");
 		System.out.println("2. No");
 		String input = keyboardIn.nextLine();
+		while (!input.equals("1") && !input.equals("2")) {
+			System.out.println("Invalid input, please enter valid command");
+			input = keyboardIn.nextLine();
+		}
 		switch (input) {
 		case "1":
 			System.out.println("Sounds good! Lets play some more.");
@@ -194,7 +208,6 @@ public class Blackjack implements Game {
 			}	
 			
 			if (this.playerHand.isBust()) {
-				System.out.println();
 				System.out.println("You lose!");
 				System.out.println();
 			}

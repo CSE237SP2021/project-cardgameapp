@@ -42,7 +42,7 @@ public class BlackJackHand {
 		Vector<Integer> potentialValues = getHandValues();
 		for (int i = 0; i < potentialValues.size(); ++i) {
 			int value = potentialValues.get(i);
-			if (value < 21) {
+			if (value <= 21) {
 				return false;
 			}
 		}
